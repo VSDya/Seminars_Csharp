@@ -16,7 +16,4 @@ else if (number == 6)
     Console.WriteLine("Суббота");
 else if (number == 7)
     Console.WriteLine("Воскресенье");
-else
-{
-    Console.Write("Неверный номер");
-}
+else Console.Write("Неверный номер");
