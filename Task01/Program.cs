@@ -1,11 +1,16 @@
-﻿double numberA,
-    numberB;
-Console.WriteLine("Введите большое целое число");
-numberA = double.Parse(Console.ReadLine());
-Console.WriteLine("Введите целое число для проверки");
-numberB = double.Parse(Console.ReadLine());
-double index = 1;
-if (index == numberA / (numberB * numberB))
+﻿// 1. Напишите программу, которая на вход принимает два числа и проверяет, 
+// является ли первое число квадратом второго.
+//  a = 25, b = 5 -> да
+//  a = 2, b = 10 -> нет
+//  a = 9, b = -3 -> да
+//  a = -3, b = 9 -> нет
+
+
+Console.WriteLine("Введите первое целое число");
+int number1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второе число для проверки");
+int number2 = Convert.ToInt32(Console.ReadLine());
+if (number1 / (number2 * number2) == 1)
 {
     Console.WriteLine("Квадратом является");
 }
