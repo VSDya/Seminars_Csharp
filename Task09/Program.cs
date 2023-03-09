@@ -15,5 +15,8 @@ int secondDigit = number % 10;
 // else
 //     Console.WriteLine($"Наибольшая цифра числа -> {secondDigit}");
 
-int result = firstDigit > secondDigit ? firstDigit : secondDigit;
+int result = firstDigit > secondDigit ? firstDigit : secondDigit; // если? иначе: тогда; - тернарный оператор
 Console.WriteLine($"Наибольшая цифра числа -> {result}");
+
+Console.Write("Наибольшая цифра числа -> "); // второй вариант без переменной (лучше первый)
+Console.WriteLine(firstDigit > secondDigit ? firstDigit : secondDigit);
