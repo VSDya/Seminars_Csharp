@@ -8,12 +8,13 @@
 
 Console.WriteLine("Введите трёхзначное число");
 int number = Convert.ToInt32(Console.ReadLine());
-int newNumber = DelDigit(number);
-Console.WriteLine($"Новое число -> {newNumber}");
-
-int DelDigit(int num)
+if (number < 0)
+    number = -number;
+if (number >= 100 && number <= 999)
 {
-    int secondDigit = num / 10;
+    int secondDigit = number / 10;
     int result = secondDigit % 10;
-    return result;
+    Console.WriteLine($"Вторая цифра числа -> {result}");
 }
+else
+    Console.Write("Некорректное число");
