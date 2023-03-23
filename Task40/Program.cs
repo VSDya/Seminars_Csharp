@@ -1,0 +1,20 @@
+﻿// Задача 40: Напишите программу, которая принимает на вход три
+// числа и проверяет, может ли существовать треугольник с сторонами
+// такой длины.
+// Теорема о неравенстве треугольника: каждая сторона треугольника
+// меньше суммы двух других сторон.
+
+bool IsExistTriange(int a, int b, int c)
+{
+    if (a + b > c && b + c > a && c + a > b) return true;
+    else return false;
+}
+
+Console.Write("Введите длину стороны A: ");
+int sideA = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите длину стороны B: ");
+int sideB = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите длину стороны C: ");
+int sideC = Convert.ToInt32(Console.ReadLine());
+string output = IsExistTriange(sideA, sideB, sideC) ? "Треугольник может существовать с такими сторонами" : "Треугольник не может существовать с такими сторонами";
+Console.WriteLine(output);
