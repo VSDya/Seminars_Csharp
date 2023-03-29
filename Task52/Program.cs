@@ -8,14 +8,14 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-// int rows = ReadInt("Введите количество строк: ");
-// int columns = ReadInt("Введите количество столбцов: ");
-// // Функция ввода 
-// int ReadInt(string message)
-// {
-//     Console.Write(message);
-//     return Convert.ToInt32(Console.ReadLine());
-// }
+int rows = ReadInt("Введите количество строк: ");
+int columns = ReadInt("Введите количество столбцов: ");
+// Функция ввода 
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
 
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
@@ -61,6 +61,7 @@ double AvgColumn(int[,] matrix, int column)
         avg += matrix[i, column];
     }
     avg /= matrix.GetLength(0);
+    avg = Math.Round(avg, 2);
     return avg;
 }
 
@@ -74,7 +75,7 @@ double[] AvgAllColumns(int[,] matrix)
     return avgColumns;
 }
 
-int[,] array2d = CreateMatrixRndInt(4, 5, 0, 10);
+int[,] array2d = CreateMatrixRndInt(rows, columns, 0, 10);
 Console.WriteLine("Созданная матрица:");
 PrintMatrix(array2d);
 Console.WriteLine();
