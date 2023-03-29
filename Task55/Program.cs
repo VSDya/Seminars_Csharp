@@ -38,27 +38,52 @@ void PrintArray(int[,] arr)
         Console.WriteLine();
     }
 }
+// Метод замены строк на столбцы поочередный, с возможностью выбора не симметричных матриц. 
 
-int[,] CreateNewArray(int[,] arr)
+// int[,] CreateNewArray(int[,] arr)
+// {
+//     int[,] matrix = new int[arr.GetLength(1), arr.GetLength(0)];
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = arr[j, i];
+//         }
+//     }
+//     return matrix;
+// }
+
+bool IsSquareMatrix(int[,] arr)
 {
-    int[,] matrix = new int[arr.GetLength(1), arr.GetLength(0)];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    return arr.GetLength(0) == arr.GetLength(1);
+}
+
+void TransposeMatrix(int[,] arr)
+{
+    for(int i = 0; i < arr.GetLength(0) - 1; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = i + 1; j < arr.GetLength(1); j++)
         {
-            matrix[i, j] = arr[j, i];
+            int temp = arr[j, i];
+            arr[j, i] = arr[i, j];
+            arr[i, j] = temp;
         }
     }
-    return matrix;
 }
 
 int[,] array2d = CreateMatrixRndInt(rows, columns, 0, 10);
 Console.WriteLine("Созданная матрица:");
 PrintArray(array2d);
-if (array2d.GetLength(0) == array2d.GetLength(1)) // Если убрать условие, то для любых размеров матрицы
+if (IsSquareMatrix(array2d))
 {
-    int[,] newArray2d = CreateNewArray(array2d);
-    Console.WriteLine("Матрица с заменой строк на столбцы:");
-    PrintArray(newArray2d);
+    TransposeMatrix(array2d);
+    Console.WriteLine("Развёрнутая матрица с заменой строк на столбцы методом треугольника:");
+    PrintArray(array2d);
 }
+// if (array2d.GetLength(0) == array2d.GetLength(1)) // Если убрать условие, то для любых размеров матрицы
+// {
+//     int[,] newArray2d = CreateNewArray(array2d);
+//     Console.WriteLine("Матрица с заменой строк на столбцы:");
+//     PrintArray(newArray2d);
+// }
 else Console.WriteLine("Матрица не симметричная.");
