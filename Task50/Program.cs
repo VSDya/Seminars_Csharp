@@ -49,5 +49,9 @@ Console.WriteLine();
 Console.WriteLine("Введите индекс ячейки");
 int numA = Convert.ToInt32(Console.ReadLine());
 int numB = Convert.ToInt32(Console.ReadLine());
-string output = FindElementByIndex(array2d, numA, numB) ? $"Элемент с индексом {numA}, {numB} -> присутствует в массиве" : $"{numA}, {numB} -> такого элемента в массиве нет";
-Console.WriteLine(output);
+if (numA > 0 && numB > 0)
+{
+    string output = FindElementByIndex(array2d, numA, numB) ? $"Элемент с индексом {numA}, {numB} -> присутствует в массиве" : $"{numA}, {numB} -> такого элемента в массиве нет";
+    Console.WriteLine(output);
+}
+else Console.WriteLine($"{numA}, {numB} -> индекс не может иметь отрицательное значение");
