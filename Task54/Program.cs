@@ -46,9 +46,9 @@ void RowsInDescendingOrder(int[,] matrix)
             {
                 if (matrix[i, j] > matrix[i, k])
                 {
-                    int min = matrix[i, j];
+                    int max = matrix[i, j];
                     matrix[i, j] = matrix[i, k];
-                    matrix[i, k] = min;
+                    matrix[i, k] = max;
                 }
             }
         }
