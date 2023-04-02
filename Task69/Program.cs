@@ -3,15 +3,28 @@
 // A = 3; B = 5 -> 243 (3⁵)
 // A = 2; B = 3 -> 8
 
-int PowNumber(int numA, int numB)
+// int PowNumber(int numA, int numB)
+// {
+//     if (numB == 0) return 1;
+//     return numA * PowNumber(numA, numB - 1);
+// }
+
+double PowNumber(int numA, int numB)
 {
-    if (numB == 0) return 1;
-    return numA * PowNumber(numA, numB - 1);
+    if (numB < 0)
+    {
+        return 1 / (numA / PowNumber(numA, numB + 1));
+    }
+    else if (numB > 0)
+    {
+        return numA * PowNumber(numA, numB - 1);
+    }
+    else return 1;
 }
 
 Console.Write("Введите первое число: ");
 int numberA = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите второе число: ");
 int numberB = Convert.ToInt32(Console.ReadLine());
-int result = PowNumber(numberA, numberB);
+double result = PowNumber(numberA, numberB);
 Console.WriteLine($"Число {numberA} в степени {numberB} равно {result}");
