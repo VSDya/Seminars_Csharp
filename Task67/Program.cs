@@ -5,8 +5,8 @@
 
 int SumDigits(int num)
 {
-if (num == 0) return 0;
-return num % 10 + SumDigits(num / 10);
+    if (num == 0) return 0;
+    return num % 10 + SumDigits(num / 10);
 }
 
 Console.Write("Введите число: ");
